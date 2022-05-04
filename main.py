@@ -31,4 +31,4 @@ go = True
 while go:
     for event in pygame.event.get():
         if event.type == pygame.QUIT: sys.exit()
-    spielfeld_erstellen
+    spielfeld_erstellen()
