@@ -1,32 +1,35 @@
-# Importieren von Pygame Paketen
+'''Importieren'''
 import pygame
 import sys
-import string
 
-# Funktionen für das Grundgerüst damit Pygame laufen kann
+'''Pygame zum Starten bringen'''
 pygame.init()
 bildschirm = pygame.display.set_mode([1000, 550])
 pygame.display.set_caption("Schiffe versenken")
 hintergrund = pygame.image.load("Grafiken-SchiffeVersenken/hintergrund.jpg")
 
-# Variablen
-spielbrettbreite = 200
-spielbretthoehe = 200
-kästchengroesse = 40
+'''Variablen werden initialisiert'''
 blau = (0, 0, 255)
-grün = (0, 255, 0)
+grun = (0, 255, 0)
 rot = (255, 0, 0)
 grau = (190, 190, 190)
 schwarz = (0, 0, 0)
-ABC_G = string.ascii_uppercase
+kaestchengroesse = 40
+felderhorizontal = 10
+feldervertikal = 10
 
 
+'''Grid (Gitter) wird erstellt, um die Basis des Spielfeldes zu erschaffen'''
 def spielfeld_erstellen():
-    bildschirm.blit(hintergrund, (0, 0))
 
+    bildschirm.blit(hintergrund, (0, 0))
+    for x in range(0, (felderhorizontal + 1) * kaestchengroesse, kaestchengroesse):
+        pygame.draw.line(bildschirm, schwarz, (x + 60, 120), (x + 60, 520))
+    for y in range(0, (feldervertikal + 1) * kaestchengroesse, kaestchengroesse):
+        pygame.draw.line(bildschirm, schwarz, (60, y + 120), (460, y + 120))
     pygame.display.update()
 
-
+'''Main-Schleife damit das Spiel durchgehend laufen kann'''
 go = True
 while go:
     for event in pygame.event.get():
