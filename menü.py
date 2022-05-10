@@ -37,7 +37,6 @@ def main_menu():
         draw_text('Mehrspieler', font2, (0, 0, 0), bildschirm, 50, 210)
         draw_text('Einstellungen', font2, (0, 0, 0), bildschirm, 50, 310)
         draw_text('Exit', font2, (0, 0, 0), bildschirm, 50, 410)
-        pygame.display.update()
 
 
         if button_1.collidepoint((mx, my)):
@@ -52,10 +51,10 @@ def main_menu():
         if button_4.collidepoint((mx, my)):
             if click:
                 exit()
-        pygame.draw.rect(bildschirm, (255, 255, 255), button_1)
-        pygame.draw.rect(bildschirm, (255, 255, 255), button_2)
-        pygame.draw.rect(bildschirm, (255, 255, 255), button_3)
-        pygame.draw.rect(bildschirm, (255, 255, 255), button_4)
+        pygame.draw.rect(bildschirm, (255, 255, 255), button_1, 1)
+        pygame.draw.rect(bildschirm, (255, 255, 255), button_2, 1)
+        pygame.draw.rect(bildschirm, (255, 255, 255), button_3, 1)
+        pygame.draw.rect(bildschirm, (255, 255, 255), button_4, 1)
 
         click = False
         for event in pygame.event.get():
@@ -115,7 +114,7 @@ def einstellungen():
     while running:
         bildschirm.blit(hintergrund, (0, 0))
 
-        draw_text('EInstellungen', font, (0, 0, 0), bildschirm, 20, 20)
+        draw_text('Einstellungen', font, (0, 0, 0), bildschirm, 20, 20)
         for event in pygame.event.get():
             if event.type == QUIT:
                 pygame.quit()
