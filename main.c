@@ -9,8 +9,7 @@
 #include <stdlib.h>
 
 int main(int argc, const char * argv[]) {
-    
-    int fd[2];
+
     int id1 = fork();
     
     if (pipe(fd) == -1) {
