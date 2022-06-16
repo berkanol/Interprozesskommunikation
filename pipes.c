@@ -22,7 +22,7 @@ int main(int argc, const char * argv[]) {
     
     // Pipe wird geöffnet, falls nicht soll Fehlermeldung ausgegeben werden
     if (pipe(fd) == -1) {
-            printf("An error ocurred with opening the pipe\n");
+            printf("Beim öffnen der Pipe ist ein Fehler unterlaufen\n");
             return 1;
         }
     if (pipe(fd2) == -1) {
