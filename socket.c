@@ -65,8 +65,8 @@ int main(int argc, const char * argv[]) {
                     int arr[10];
                     int n = 10;
                     
-                    
-                    srand(time(NULL));              // srand(), damit bei jedem durchlauf neue Zahle generiert werden
+                    // srand(), damit bei jedem durchlauf neue Zahle generiert werden
+                    srand(time(NULL));              
                     printf("Generiert in CONV: ");
                     
                     // for-Schleife um Zufallszahlen zu generieren
@@ -94,7 +94,7 @@ int main(int argc, const char * argv[]) {
                     read(sv[1], &arr, sizeof(int) * n);
                     
                     
-                    // Benannte Pipe wird geöffnet und es werden Daten reingeschrieben
+                    // Es werden Daten reingeschrieben
                     int fddatei = open("testfifo", O_RDWR);
                     if (fddatei == -1) {
                         return 5;
@@ -102,7 +102,7 @@ int main(int argc, const char * argv[]) {
                     
                     write(fddatei, &arr, sizeof(int) * n);
                     
-                    // Zur Überprüfung werden die in die benannte Pipe geschrieben Daten ausgelesen
+                    // Zur Überprüfung werden die geschriebene Daten ausgelesen
                     printf("Erhalten in LOG: ");
                     for (i = 0; i < n; i++) {
                         if (read(fddatei, &arr[i], sizeof(int)) == -1) {
@@ -114,7 +114,7 @@ int main(int argc, const char * argv[]) {
                     }
                     printf("\n");
                     
-                    // Benannte Pipe zum lesen wird geschlossen
+                    
                     close(fddatei);
                     
                     
@@ -133,7 +133,7 @@ int main(int argc, const char * argv[]) {
                 int i;
                 int n = 10;
                 
-                // Daten werden aus der Pipe gelesen#
+                // Daten werden aus der Socket gelesen
                 read(sv[0], &arr, sizeof(int) * n);
                 
                 // Zur Überprüfung was STAT von LOG erhalten hat
@@ -151,12 +151,12 @@ int main(int argc, const char * argv[]) {
                     
                 }
                 
-                // Summe wird ins Socket geschrieben and anschließende geschlossen
+                // Summe wird ins Socket geschrieben und anschließend geschlossen
                 write(sv[0], &sum, sizeof(sum));
                 close(sv[0]);
                 
                 
-                // Mittelwert wird berechnet und ins 2. Socket geschrieben and anschließend geschlossen
+                // Mittelwert wird berechnet und ins 2. Socket geschrieben und anschließend geschlossen
                 float mittelwert;
                 
                 mittelwert = (float)sum / n;
