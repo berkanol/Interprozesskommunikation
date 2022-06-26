@@ -53,7 +53,7 @@ int main(int argc, const char * argv[]) {
             printf("Beim öffnen der Pipe ist ein Fehler unterlaufen\n");
             return 1;
         }
-        
+    
         // Benannte Pipe wird angelegt
         mkfifo("testfifo" ,0666);
         
@@ -203,10 +203,7 @@ int main(int argc, const char * argv[]) {
                 exit(0);
             }
         }
-        else
-        {
-            wait(NULL);
-        }
+        
         sleep(1);
     }
 }
