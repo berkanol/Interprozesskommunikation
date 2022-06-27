@@ -24,6 +24,7 @@ void interrupt_handler(int signal) {
     if(signal == SIGINT)
     {
         keepRunning = false;
+        printf("Sie haben die Prozesse gestoppt!");
     }
 }
 
