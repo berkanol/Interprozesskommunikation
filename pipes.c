@@ -91,6 +91,8 @@ int main(int argc, const char * argv[]) {
                         // Daten werden in die Pipe geschrieben und Pipe zum schreiben wird geschlossen
                         write(fd[1], &arr, sizeof(int) * n);
                         close(fd[1]);
+                        
+                        // exit um den Prozess zu terminieren und zu schließen
                         exit(0);
                     } else {
                         
@@ -203,7 +205,7 @@ int main(int argc, const char * argv[]) {
                 exit(0);
             }
         }
-        
+        // lässt die schleife eine Sekunde lang warten, damit das System zeit hat neue zahlen zu generieren
         sleep(1);
     }
 }
