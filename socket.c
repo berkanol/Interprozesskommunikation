@@ -1,3 +1,10 @@
+//
+//  socket.c
+//  Interprozesskommunikation
+//
+//  Created by Vehbi Gülcan on 12.06.22.
+//
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
